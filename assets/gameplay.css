@@ -1,0 +1,55 @@
+/* gameplay.css */
+
+#game-environment {
+    margin-top: 50px;   /* Increase margin from the top */
+    margin-left: 30px;  /* Increase margin from the left */
+}
+
+#word-display {
+    font-size: 25px;
+    margin-left: 3px;
+    margin-bottom: 30px;
+}
+
+
+/* Styles for the error message */
+#error-message {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+#game-message {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+#guess-input {
+    font-size: 24px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: calc(70% - 10px);  /* Set the width of the input to 70% - 10px padding */
+    max-width: 300px;
+    display: inline-block;   /* Display as inline-block */
+    vertical-align: middle;   /* Align vertically to the middle */
+}
+
+/* Styles for the guess button */
+#guess-button {
+    font-size: 25px;
+    background-color: #008CBA;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: block;   /* Display as inline-block */
+    width: 300px; 
+    height: 60px;
+}
+
+/* Change button color on hover */
+#guess-button:hover {
+    background-color: #005684;
+}

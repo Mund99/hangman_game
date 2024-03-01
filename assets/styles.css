@@ -19,7 +19,7 @@ h1 {
 }
 
 #hangman-art {
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
 }
 
@@ -32,5 +32,13 @@ h1 {
     box-sizing: border-box; /* Include the border within the specified width and height */
     width: 300px; /* Set the width of the button */
     height: 60px; /* Set the height of the button */
+}
+
+#start-button:hover {
+    color: red; /* Set the text color to white when hovered */
+}
+
+.start-button-link {
+    text-decoration: none; /* Remove the underline from the button text */
 }
 

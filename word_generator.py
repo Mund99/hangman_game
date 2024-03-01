@@ -1,4 +1,5 @@
 import nltk
+import os
 
 class WordGenerator:
     def __init__(self):
@@ -29,3 +30,24 @@ class WordGenerator:
         # Filter out words with hyphens, underscores, and apostrophes
         filtered_words = [word for word in filtered_words if '-' not in word and '_' not in word and "'" not in word]
         return filtered_words
+
+    def download_wordbank(self, file_path='wordbank.txt'):
+        try:
+            word_list = self.generate_word_list()
+
+            # Save the word list to a file
+            with open(file_path, 'w') as file:
+                for word in word_list:
+                    file.write(word + '\n')
+
+            print(f"Wordbank saved to {file_path}")
+        except OSError as e:
+            print(f"Error: {e}")
+
+                
+
+word_generator = WordGenerator()
+script_directory = os.path.dirname(os.path.abspath(__file__))
+full_file_path = os.path.join(script_directory, 'assets/wordbank.txt')
+
+word_generator.download_wordbank(full_file_path)
