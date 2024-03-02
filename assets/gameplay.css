@@ -1,55 +1,121 @@
-/* gameplay.css */
-
-#game-environment {
-    margin-top: 50px;   /* Increase margin from the top */
-    margin-left: 30px;  /* Increase margin from the left */
+/* Game Environment Container */
+#game-container {
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 920px; /* Adjust the maximum width */
+    width: 90%; /* Adjust the width percentage as needed */
+    border: 0px solid #ddd; /* Add a light border */
+    padding: 20px; /* Add padding for content away from the edges */
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box; /* Include padding and border in the total width/height */
 }
 
-#word-display {
-    font-size: 25px;
-    margin-left: 3px;
-    margin-bottom: 30px;
+/* Left section */
+#left-section {
+    text-align: left;
+    flex: 1; /* Equal flex property to split from center */
 }
 
+/* Right section */
+#right-section {
+    text-align: right;
+    flex: 1; /* Equal flex property to split from center */
+}
 
-/* Styles for the error message */
+#new-game-button,
+#home-button {
+    font-size: 18px;
+    background-color: none;
+    border: 1px solid #000; 
+    box-sizing: border-box; 
+    height: 35px; 
+    text-align: center;
+    display: inline-block;
+    line-height: 30px; /* Center the text vertically */
+    vertical-align: middle; /* Align vertically in the middle */
+}
+
+#new-game-button {
+    width: 180px; 
+}
+
+#home-button {
+    margin-left: 15px; /* Add margin between buttons */
+    width: 130px; 
+}
+
+#new-game-button:hover,
+#home-button:hover {
+    color: red; /* Set the text color to white when hovered */
+}
+
+/* Hangman image styles */
+#hangman-image {
+    font-size: 32px;
+    text-align: center;
+    margin-right: 120px;
+}
+
+/* Game message styles */
+#game-message {
+    margin-top: 120px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Guessed letters and Error message styles */
+#guessed-letters,
 #error-message {
-    color: red;
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 15px;
 }
 
-#game-message {
-    font-size: 24px;
-    margin-bottom: 30px;
+#error-message{
+    color: red;
 }
 
+/* Word display styles */
+#word-display {
+    font-size: 20px;
+    color: black;
+}
+
+#guess-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    margin-top: 15px;
+}
+
+/* Guess input styles */
 #guess-input {
-    font-size: 24px;
-    padding: 10px;
-    margin-bottom: 20px;
-    width: calc(70% - 10px);  /* Set the width of the input to 70% - 10px padding */
-    max-width: 300px;
-    display: inline-block;   /* Display as inline-block */
-    vertical-align: middle;   /* Align vertically to the middle */
+    font-size: 20px;
+    width: 100%;
+    max-width: 250px;
 }
 
-/* Styles for the guess button */
+/* Center alignment */
+#center-align {
+    text-align: center;
+}
+
+/* Guess button styles */
 #guess-button {
-    font-size: 25px;
+    font-size: 18px;
     background-color: #008CBA;
     color: white;
-    padding: 15px 30px;
     border: none;
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-align: center;
-    display: block;   /* Display as inline-block */
-    width: 300px; 
-    height: 60px;
+    margin-left: 15px;
 }
 
-/* Change button color on hover */
+/* Hover effect for buttons on the left */
 #guess-button:hover {
     background-color: #005684;
 }
