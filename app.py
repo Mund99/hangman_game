@@ -1,7 +1,10 @@
 import dash
-from dash import dcc, html
+from dash import html
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', 'styles.css', 'gameplay.css']
+external_stylesheets = [
+    'https://codepen.io/chriddyp/pen/bWLwgP.css', 
+    'home.css', 
+    'gameplay.css']
 
 app = dash.Dash(__name__,
                 title='Hangman Game',
@@ -9,7 +12,6 @@ app = dash.Dash(__name__,
                 use_pages=True
 )
 
-# Home page layout
 app.layout = html.Div([
     # Include dash.page_container here
     dash.page_container
