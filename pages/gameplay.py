@@ -62,6 +62,7 @@ hangman_images = [
 -------"""
 ]
 
+# Function to get a random word from the word bank file 
 def get_random_word():
     # Read words from 'assets/wordbank.txt'
     with open('assets/wordbank.txt', 'r') as file:
@@ -74,8 +75,8 @@ def get_random_word():
     random_word = random_word.lower()
 
     return random_word
-random_word = get_random_word()
 
+# Function to initialize the game state
 def initialize_game():
     global random_word, max_lives, guessed_letters, guessing_board, current_state
 
@@ -106,41 +107,57 @@ def get_game_message(state):
     elif state['game_over']:
         return f"Game over. The word was '{''.join(state['word'])}'. Try again!"
     else:
-        return f"Lives remaining: {max_lives - state['incorrect_attempts']}, Incorrect attempts: {state['incorrect_attempts']}."
+        return f"Lives remaining: {max_lives - state['incorrect_attempts']}"
 
+# Function to display guessed letters
 def display_guessed_letters(guessed_letters):
     if guessed_letters:
         return f"Guessed letters: {', '.join(sorted(guessed_letters))}"
     else:
         return ''
-    
+
+# Initialize the game state
 current_state = initialize_game()
 
 # Define the layout for the Hangman environment
 layout = html.Div([
     html.Div(className='header-bar', children=[html.H1("Hangman Game")]),
     
+    # Home and New Game buttons
+    html.Div(
+        id='top-section',
+        children=[
+            dcc.Link(html.Button('Home', id='home-button'), href='/', className='button-link'),
+            html.Button('New Game', id='new-game-button', n_clicks=0),
+        ]
+    ),
+
     # Game layout container
     html.Div(id='game-container', children=[
         # Left Section
-        html.Div(id='left-section', children=[
-            html.Div(id='game-message', children=dcc.Markdown(get_game_message(current_state))),
-            html.Div(id='guessed-letters'),
-            html.Div(id='error-message'),
-            html.Div(id='word-display', children=current_state['guessing_board']),
-            html.Div(id='guess-container', children=[
-                dcc.Input(id='guess-input', type='text', placeholder='Enter your guess'),
-                html.Button('Guess', id='guess-button', n_clicks=0),
-            ]),
-        ]),
+        html.Div(
+            id='left-section', 
+            children=[
+                html.Div(id='game-message', children=dcc.Markdown(get_game_message(current_state))),
+                html.Div(id='guessed-letters'),
+                html.Div(id='error-message'),
+                html.Div(id='word-display', children=current_state['guessing_board']),
+                html.Div(id='guess-container', children=[
+                    dcc.Input(id='guess-input', type='text', placeholder='Enter your guess'),
+                    html.Button('Guess', id='guess-button', n_clicks=0),
+                ]),
+            ],
+        ),
         
         # Right Section
-        html.Div(id='right-section', children=[
-            html.Button('New Game', id='new-game-button', n_clicks=0),
-            dcc.Link(html.Button('Home', id='home-button'), href='/', className='button-link'),
-            html.Pre(id='hangman-image', children=[hangman_images[0]]),
-        ]),
+        html.Div(
+            id='right-section', 
+            children=[
+                html.Pre(id='hangman-image', children=[hangman_images[0]]),
+            ],
+        ),
     ]),
+    
     # Use the dcc.Store component to store the current state of the game
     dcc.Store(id='current-state', storage_type='session', data=current_state),
 ])
