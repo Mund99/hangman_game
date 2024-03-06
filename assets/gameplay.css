@@ -1,85 +1,92 @@
-/* Game Environment Container */
-#game-container {
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 920px; /* Adjust the maximum width */
-    width: 90%; /* Adjust the width percentage as needed */
-    border: 0px solid #ddd; /* Add a light border */
-    padding: 20px; /* Add padding for content away from the edges */
+#top-section {
     display: flex;
-    justify-content: space-between;
-    box-sizing: border-box; /* Include padding and border in the total width/height */
-}
-
-/* Left section */
-#left-section {
-    text-align: left;
-    flex: 1; /* Equal flex property to split from center */
-}
-
-/* Right section */
-#right-section {
-    text-align: right;
-    flex: 1; /* Equal flex property to split from center */
+    gap: 12px;
+    padding: 20px;
+    background-color: #f0f0f0;
 }
 
 #new-game-button,
 #home-button {
-    font-size: 18px;
+    text-transform: none;
+    color: #222;
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
     background-color: none;
-    border: 1px solid #000; 
+    border: 2px solid #222; 
     box-sizing: border-box; 
-    height: 35px; 
     text-align: center;
     display: inline-block;
     line-height: 30px; /* Center the text vertically */
     vertical-align: middle; /* Align vertically in the middle */
+    height: 45px; 
+}
+
+#home-button {
+    margin-left: 15px;
+    width: 130px; 
 }
 
 #new-game-button {
     width: 180px; 
 }
 
-#home-button {
-    margin-left: 15px; /* Add margin between buttons */
-    width: 130px; 
-}
-
 #new-game-button:hover,
 #home-button:hover {
-    color: red; /* Set the text color to white when hovered */
+    color: red; 
 }
 
+/* Game Environment Container */
+#game-container {
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px solid #222; 
+    width: 1200px;
+    height: 500px;
+    padding: 0px; 
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box; 
+}
+
+/* Right section */
 /* Hangman image styles */
 #hangman-image {
-    font-size: 32px;
-    text-align: center;
-    margin-right: 120px;
+    color: #222;
+    font-size: 45px;
+    margin-right: 260px;
+    line-height: 58px;
+    margin-top: 0; 
 }
 
-/* Game message styles */
+#left-section {
+    text-align: left;
+    margin-left: 150px;
+    flex: 1; 
+}
+
+#game-message, #error-message, #guessed-letters, #word-display
+{
+    color: #222;
+    font-size: 25px;
+    font-family: 'Lato', sans-serif;
+}
+
 #game-message {
-    margin-top: 120px;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-/* Guessed letters and Error message styles */
-#guessed-letters,
-#error-message {
-    font-size: 20px;
-    margin-bottom: 15px;
+    margin-top: 110px;
 }
 
 #error-message{
     color: red;
 }
 
-/* Word display styles */
 #word-display {
-    font-size: 20px;
-    color: black;
+    font-size: 42px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 120px;
+    letter-spacing: 3.3px; 
+    font-weight: none
 }
 
 #guess-container {
@@ -90,19 +97,17 @@
 
 /* Guess input styles */
 #guess-input {
-    font-size: 20px;
-    width: 100%;
-    max-width: 250px;
-}
-
-/* Center alignment */
-#center-align {
-    text-align: center;
+    font-family: 'Lato', sans-serif;
+    color: #222;
+    font-size: 22px;
+    max-width: 300px;
 }
 
 /* Guess button styles */
 #guess-button {
-    font-size: 18px;
+    text-transform: none;
+    font-size: 22px;
+    font-family: 'Lato', sans-serif;
     background-color: #008CBA;
     color: white;
     border: none;
