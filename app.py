@@ -12,6 +12,7 @@ app = dash.Dash(__name__,
                 external_stylesheets=external_stylesheets,
                 use_pages=True  # Enable the use of dash pages
 )
+server = app.server
 
 app.layout = html.Div([
     # Include dash.page_container here - this is where the page content will be rendered
@@ -20,4 +21,4 @@ app.layout = html.Div([
 
 # Run the Dash app
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(debug=False, host="0.0.0.0",port=8080)
